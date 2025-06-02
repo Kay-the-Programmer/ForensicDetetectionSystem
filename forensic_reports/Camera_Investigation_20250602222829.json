@@ -1,0 +1,77 @@
+{
+    "case_name": "Camera Investigation",
+    "investigator": "Jane Smith",
+    "timestamp": "20250602222829",
+    "device_info": {
+        "name": "SB9F34JC",
+        "id": "TBBAF5OQSLB4G66J",
+        "version": "3.6.7"
+    },
+    "acquisition_details": [
+        {
+            "device_id": "DEV_20250602214659",
+            "source_type": "log",
+            "timestamp": "20250602214740",
+            "sha256_hash": "7223cc189d4a34a9a042b7533216d3232fab690048a49d445c62fd909a86ec63",
+            "file_path": "forensic_output/DEV_20250602214659_log_20250602214740.dat",
+            "file_size": 1394
+        },
+        {
+            "device_id": "DEV_20250602214659",
+            "source_type": "config",
+            "timestamp": "20250602214748",
+            "sha256_hash": "d8b2d041ff69831d1758b45da4ca08dbc57012bf37ff911386afd7430f10b8b3",
+            "file_path": "forensic_output/DEV_20250602214659_config_20250602214748.dat",
+            "file_size": 1313
+        }
+    ],
+    "analysis_results": {
+        "total_entries": 25,
+        "start_time": "2025-06-02T00:07:58.860766",
+        "end_time": "2025-06-02T23:44:54.860766",
+        "duration_seconds": 85016.0,
+        "event_counts": {
+            "ERROR": 6,
+            "DEBUG": 10,
+            "INFO": 6,
+            "WARNING": 3
+        },
+        "error_count": 6,
+        "warning_count": 3,
+        "battery_stats": {
+            "count": 3,
+            "min": 0,
+            "max": 72,
+            "avg": 35.666666666666664
+        },
+        "device_info": {
+            "name": "SB9F34JC",
+            "id": "TBBAF5OQSLB4G66J",
+            "version": "3.6.7"
+        },
+        "network_info": {
+            "type": "Bluetooth",
+            "ip": "134.131.4.105",
+            "port": 39107
+        },
+        "sensor_count": 5,
+        "cloud_enabled": true,
+        "security_issues": [
+            "Network password stored in plaintext",
+            "Cloud API key stored in plaintext"
+        ],
+        "sensor_types": [
+            "sound",
+            "humidity",
+            "temperature",
+            "light"
+        ],
+        "cloud_service": "Custom",
+        "settings": {
+            "logging_level": "INFO",
+            "update_interval": 2,
+            "timezone": "PST"
+        }
+    },
+    "notes": "Investigation of unauthorized access"
+}

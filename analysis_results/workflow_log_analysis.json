@@ -1,0 +1,152 @@
+{
+    "parsed_logs": [
+        {
+            "timestamp": "2025-06-02T12:30:28.860766",
+            "level": "ERROR",
+            "message": "Connection established"
+        },
+        {
+            "timestamp": "2025-06-02T13:18:36.860766",
+            "level": "ERROR",
+            "message": "Data sent to cloud"
+        },
+        {
+            "timestamp": "2025-06-02T06:08:38.860766",
+            "level": "DEBUG",
+            "message": "Device started"
+        },
+        {
+            "timestamp": "2025-06-02T22:25:44.860766",
+            "level": "INFO",
+            "message": "Battery level: 0%",
+            "battery_level": 0
+        },
+        {
+            "timestamp": "2025-06-02T11:54:00.860766",
+            "level": "INFO",
+            "message": "Battery level: 72%",
+            "battery_level": 72
+        },
+        {
+            "timestamp": "2025-06-02T08:07:39.860766",
+            "level": "ERROR",
+            "message": "Connection established"
+        },
+        {
+            "timestamp": "2025-06-02T18:52:28.860766",
+            "level": "ERROR",
+            "message": "Reconnecting..."
+        },
+        {
+            "timestamp": "2025-06-02T22:52:20.860766",
+            "level": "WARNING",
+            "message": "Device shutdown"
+        },
+        {
+            "timestamp": "2025-06-02T22:06:35.860766",
+            "level": "INFO",
+            "message": "Device started"
+        },
+        {
+            "timestamp": "2025-06-02T09:15:40.860766",
+            "level": "DEBUG",
+            "message": "Firmware update available"
+        },
+        {
+            "timestamp": "2025-06-02T12:52:57.860766",
+            "level": "DEBUG",
+            "message": "Battery level: 35%",
+            "battery_level": 35
+        },
+        {
+            "timestamp": "2025-06-02T23:15:44.860766",
+            "level": "DEBUG",
+            "message": "Connection established"
+        },
+        {
+            "timestamp": "2025-06-02T02:46:41.860766",
+            "level": "INFO",
+            "message": "Connection lost"
+        },
+        {
+            "timestamp": "2025-06-02T01:18:54.860766",
+            "level": "WARNING",
+            "message": "Connection lost"
+        },
+        {
+            "timestamp": "2025-06-02T03:22:18.860766",
+            "level": "DEBUG",
+            "message": "Configuration updated"
+        },
+        {
+            "timestamp": "2025-06-02T04:10:15.860766",
+            "level": "WARNING",
+            "message": "Connection lost"
+        },
+        {
+            "timestamp": "2025-06-02T14:32:41.860766",
+            "level": "DEBUG",
+            "message": "Reconnecting..."
+        },
+        {
+            "timestamp": "2025-06-02T19:10:43.860766",
+            "level": "DEBUG",
+            "message": "Configuration updated"
+        },
+        {
+            "timestamp": "2025-06-02T16:40:06.860766",
+            "level": "DEBUG",
+            "message": "Device shutdown"
+        },
+        {
+            "timestamp": "2025-06-02T00:07:58.860766",
+            "level": "DEBUG",
+            "message": "Configuration updated"
+        },
+        {
+            "timestamp": "2025-06-02T23:44:54.860766",
+            "level": "INFO",
+            "message": "Connection established"
+        },
+        {
+            "timestamp": "2025-06-02T04:32:29.860766",
+            "level": "INFO",
+            "message": "Reconnecting..."
+        },
+        {
+            "timestamp": "2025-06-02T10:55:00.860766",
+            "level": "DEBUG",
+            "message": "Connection established"
+        },
+        {
+            "timestamp": "2025-06-02T05:57:00.860766",
+            "level": "ERROR",
+            "message": "Device started"
+        },
+        {
+            "timestamp": "2025-06-02T22:32:41.860766",
+            "level": "ERROR",
+            "message": "Device started"
+        }
+    ],
+    "analysis_results": {
+        "total_entries": 25,
+        "start_time": "2025-06-02T00:07:58.860766",
+        "end_time": "2025-06-02T23:44:54.860766",
+        "duration_seconds": 85016.0,
+        "event_counts": {
+            "ERROR": 6,
+            "DEBUG": 10,
+            "INFO": 6,
+            "WARNING": 3
+        },
+        "error_count": 6,
+        "warning_count": 3,
+        "battery_stats": {
+            "count": 3,
+            "min": 0,
+            "max": 72,
+            "avg": 35.666666666666664
+        }
+    }
+}

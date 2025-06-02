@@ -1,0 +1,90 @@
+{
+    "parsed_config": {
+        "device": {
+            "name": "SB9F34JC",
+            "id": "TBBAF5OQSLB4G66J",
+            "version": "3.6.7"
+        },
+        "network": {
+            "ssid": "C8I0K8WS2W",
+            "password": "oSX3mlW156u8PaIK",
+            "type": "Bluetooth",
+            "ip": "134.131.4.105",
+            "port": 39107
+        },
+        "sensors": [
+            {
+                "id": "SENSOR_0",
+                "type": "humidity",
+                "interval": 32,
+                "unit": "C"
+            },
+            {
+                "id": "SENSOR_1",
+                "type": "sound",
+                "interval": 34,
+                "unit": "lux"
+            },
+            {
+                "id": "SENSOR_2",
+                "type": "temperature",
+                "interval": 18,
+                "unit": "lux"
+            },
+            {
+                "id": "SENSOR_3",
+                "type": "humidity",
+                "interval": 28,
+                "unit": "C"
+            },
+            {
+                "id": "SENSOR_4",
+                "type": "light",
+                "interval": 18,
+                "unit": "%"
+            }
+        ],
+        "cloud": {
+            "enabled": true,
+            "service": "Custom",
+            "endpoint": "https://hxupahpm.vmduo.com/api",
+            "api_key": "6L0H3uyZWu17oAi1JMkjrgYh5jn3bCST"
+        },
+        "settings": {
+            "logging_level": "INFO",
+            "update_interval": 2,
+            "timezone": "PST",
+            "language": "es"
+        }
+    },
+    "analysis_results": {
+        "device_info": {
+            "name": "SB9F34JC",
+            "id": "TBBAF5OQSLB4G66J",
+            "version": "3.6.7"
+        },
+        "network_info": {
+            "type": "Bluetooth",
+            "ip": "134.131.4.105",
+            "port": 39107
+        },
+        "sensor_count": 5,
+        "cloud_enabled": true,
+        "security_issues": [
+            "Network password stored in plaintext",
+            "Cloud API key stored in plaintext"
+        ],
+        "sensor_types": [
+            "sound",
+            "humidity",
+            "temperature",
+            "light"
+        ],
+        "cloud_service": "Custom",
+        "settings": {
+            "logging_level": "INFO",
+            "update_interval": 2,
+            "timezone": "PST"
+        }
+    }
+}

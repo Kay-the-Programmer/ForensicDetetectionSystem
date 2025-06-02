@@ -1,0 +1,25 @@
+[2025-06-02T12:30:28.860766] [ERROR] Connection established
+[2025-06-02T13:18:36.860766] [ERROR] Data sent to cloud
+[2025-06-02T06:08:38.860766] [DEBUG] Device started
+[2025-06-02T22:25:44.860766] [INFO] Battery level: 0%
+[2025-06-02T11:54:00.860766] [INFO] Battery level: 72%
+[2025-06-02T08:07:39.860766] [ERROR] Connection established
+[2025-06-02T18:52:28.860766] [ERROR] Reconnecting...
+[2025-06-02T22:52:20.860766] [WARNING] Device shutdown
+[2025-06-02T22:06:35.860766] [INFO] Device started
+[2025-06-02T09:15:40.860766] [DEBUG] Firmware update available
+[2025-06-02T12:52:57.860766] [DEBUG] Battery level: 35%
+[2025-06-02T23:15:44.860766] [DEBUG] Connection established
+[2025-06-02T02:46:41.860766] [INFO] Connection lost
+[2025-06-02T01:18:54.860766] [WARNING] Connection lost
+[2025-06-02T03:22:18.860766] [DEBUG] Configuration updated
+[2025-06-02T04:10:15.860766] [WARNING] Connection lost
+[2025-06-02T14:32:41.860766] [DEBUG] Reconnecting...
+[2025-06-02T19:10:43.860766] [DEBUG] Configuration updated
+[2025-06-02T16:40:06.860766] [DEBUG] Device shutdown
+[2025-06-02T00:07:58.860766] [DEBUG] Configuration updated
+[2025-06-02T23:44:54.860766] [INFO] Connection established
+[2025-06-02T04:32:29.860766] [INFO] Reconnecting...
+[2025-06-02T10:55:00.860766] [DEBUG] Connection established
+[2025-06-02T05:57:00.860766] [ERROR] Device started
+[2025-06-02T22:32:41.860766] [ERROR] Device started

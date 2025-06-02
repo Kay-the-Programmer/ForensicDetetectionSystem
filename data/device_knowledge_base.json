@@ -18,6 +18,25 @@
             "cloud_service": "Azure IoT",
             "notes": "Device for acquisition testing.",
             "date_added": "2025-06-02T21:39:34.696728"
+        },
+        {
+            "id": "DEV_20250602214659",
+            "name": "Smart Camera",
+            "manufacturer": "SecureCam",
+            "model": "SC-200",
+            "os": "SecureOS 3.0",
+            "storage_type": "SD Card",
+            "data_paths": [
+                "/var/log/",
+                "/media/footage/"
+            ],
+            "communication_protocols": [
+                "WiFi",
+                "RTSP"
+            ],
+            "cloud_service": "Google Cloud",
+            "notes": "Used for home security",
+            "date_added": "2025-06-02T21:46:59.447373"
         }
     ]
 }
