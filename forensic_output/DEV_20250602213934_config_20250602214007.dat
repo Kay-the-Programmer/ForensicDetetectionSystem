@@ -1,0 +1,58 @@
+{
+    "device": {
+        "name": "3C81Y5ZP",
+        "id": "0SYOTNU0VXB6768V",
+        "version": "7.9.6"
+    },
+    "network": {
+        "ssid": "T8PHHL9QPX",
+        "password": "0j3buW7wHHFcQFVr",
+        "type": "Zigbee",
+        "ip": "207.154.156.1",
+        "port": 8155
+    },
+    "sensors": [
+        {
+            "id": "SENSOR_0",
+            "type": "sound",
+            "interval": 51,
+            "unit": "C"
+        },
+        {
+            "id": "SENSOR_1",
+            "type": "motion",
+            "interval": 20,
+            "unit": "C"
+        },
+        {
+            "id": "SENSOR_2",
+            "type": "temperature",
+            "interval": 19,
+            "unit": "lux"
+        },
+        {
+            "id": "SENSOR_3",
+            "type": "motion",
+            "interval": 19,
+            "unit": "dB"
+        },
+        {
+            "id": "SENSOR_4",
+            "type": "temperature",
+            "interval": 48,
+            "unit": "%"
+        }
+    ],
+    "cloud": {
+        "enabled": false,
+        "service": "AWS IoT",
+        "endpoint": "https://dmxehgyy.dzknb.com/api",
+        "api_key": "0U278vlsJZ10Dr3m5Bp3bV2iLDcCFzTz"
+    },
+    "settings": {
+        "logging_level": "WARNING",
+        "update_interval": 3,
+        "timezone": "PST",
+        "language": "de"
+    }
+}

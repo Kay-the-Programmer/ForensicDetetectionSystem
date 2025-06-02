@@ -1,0 +1,109 @@
+================================================================================
+FORENSIC REPORT: Test Case Alpha
+================================================================================
+
+CASE INFORMATION
+--------------------------------------------------------------------------------
+Case Name: Test Case Alpha
+Investigator: Jules AI
+Report Generated: 2025-06-02 21:44:29
+
+DEVICE INFORMATION
+--------------------------------------------------------------------------------
+Device ID: DEV_20250602213934
+Device Name: Acquisition Test Device
+Manufacturer: Acq Manufacturer
+Model: AQ-001
+Operating System: AcqOS 1.0
+Storage Type: eMMC
+
+Common Data Paths:
+- /var/log/
+- /mnt/data/
+
+Communication Protocols:
+- LTE
+- Zigbee
+
+Cloud Service: Azure IoT
+
+Device Notes: Device for acquisition testing.
+
+ACQUISITION DETAILS
+--------------------------------------------------------------------------------
+Acquisition #1:
+  Source Type: log
+  Timestamp: 20250602213950
+  File Path: forensic_output/DEV_20250602213934_log_20250602213950.dat
+  File Size: 1705 bytes
+  SHA256 Hash: 6fe53f56bfc999140e3040ac8c0dd262c0433f8470c49d41447366d4df7dd638
+
+Acquisition #2:
+  Source Type: config
+  Timestamp: 20250602214007
+  File Path: forensic_output/DEV_20250602213934_config_20250602214007.dat
+  File Size: 1315 bytes
+  SHA256 Hash: c492c9b12bf220fd199c5f5c78ee6daa550c5bc279de8b2635a32e85a95aaed0
+
+ANALYSIS FINDINGS
+--------------------------------------------------------------------------------
+Log Analysis:
+  Total Log Entries: 30
+  Time Range: 2025-06-02T01:28:08.057564 to 2025-06-02T21:38:58.057564
+  Duration: 72650.0 seconds
+
+  Event Counts:
+    ERROR: 8
+    INFO: 7
+    WARNING: 9
+    DEBUG: 6
+
+  Error Events: 8
+  Warning Events: 9
+
+  Sensor Statistics:
+    Count: 5
+    Min: 22
+    Max: 98
+    Average: 41.8
+
+  Battery Statistics:
+    Count: 2
+    Min: 22%
+    Max: 53%
+    Average: 37.5%
+
+Configuration Analysis:
+  Device Name: 3C81Y5ZP
+  Device ID: 0SYOTNU0VXB6768V
+  Version: 7.9.6
+
+  Network Information:
+    Type: Zigbee
+    IP: 207.154.156.1
+    Port: 8155
+
+  Sensor Count: 5
+  Sensor Types:
+    - motion
+    - temperature
+    - sound
+
+  Cloud Enabled: False
+
+  Security Issues:
+    - Network password stored in plaintext
+    - Cloud API key stored in plaintext
+
+  Settings:
+    Logging Level: WARNING
+    Update Interval: 3 hours
+    Timezone: PST
+
+ADDITIONAL NOTES
+--------------------------------------------------------------------------------
+This is a test report generation.
+
+================================================================================
+END OF REPORT: Test Case Alpha
+================================================================================

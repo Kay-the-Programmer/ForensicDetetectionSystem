@@ -1,0 +1,23 @@
+{
+    "devices": [
+        {
+            "id": "DEV_20250602213934",
+            "name": "Acquisition Test Device",
+            "manufacturer": "Acq Manufacturer",
+            "model": "AQ-001",
+            "os": "AcqOS 1.0",
+            "storage_type": "eMMC",
+            "data_paths": [
+                "/var/log/",
+                "/mnt/data/"
+            ],
+            "communication_protocols": [
+                "LTE",
+                "Zigbee"
+            ],
+            "cloud_service": "Azure IoT",
+            "notes": "Device for acquisition testing.",
+            "date_added": "2025-06-02T21:39:34.696728"
+        }
+    ]
+}
