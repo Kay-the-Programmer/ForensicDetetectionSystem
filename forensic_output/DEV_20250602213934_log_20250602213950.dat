@@ -1,0 +1,30 @@
+[2025-06-02T09:44:45.057564] [ERROR] Data sent to cloud
+[2025-06-02T18:15:54.057564] [INFO] Battery level: 53%
+[2025-06-02T15:31:34.057564] [INFO] Configuration updated
+[2025-06-02T08:42:47.057564] [WARNING] Connection established
+[2025-06-02T12:24:04.057564] [INFO] Configuration updated
+[2025-06-02T16:54:38.057564] [ERROR] Data sent to cloud
+[2025-06-02T14:38:30.057564] [WARNING] Reconnecting...
+[2025-06-02T21:38:58.057564] [ERROR] Sensor reading: 22
+[2025-06-02T16:24:31.057564] [INFO] Connection lost
+[2025-06-02T10:13:37.057564] [ERROR] Connection established
+[2025-06-02T03:43:41.057564] [WARNING] Connection lost
+[2025-06-02T17:54:26.057564] [WARNING] Sensor reading: 28
+[2025-06-02T01:40:03.057564] [DEBUG] Configuration updated
+[2025-06-02T12:12:22.057564] [DEBUG] Device started
+[2025-06-02T02:29:23.057564] [INFO] Firmware update available
+[2025-06-02T15:43:32.057564] [DEBUG] Reconnecting...
+[2025-06-02T21:26:03.057564] [ERROR] Data sent to cloud
+[2025-06-02T14:34:39.057564] [DEBUG] Reconnecting...
+[2025-06-02T10:04:42.057564] [WARNING] Reconnecting...
+[2025-06-02T21:02:26.057564] [ERROR] Device started
+[2025-06-02T01:28:08.057564] [WARNING] Device shutdown
+[2025-06-02T09:32:05.057564] [WARNING] Configuration updated
+[2025-06-02T13:01:14.057564] [ERROR] Firmware update available
+[2025-06-02T18:33:59.057564] [INFO] Sensor reading: 33
+[2025-06-02T09:38:36.057564] [DEBUG] Sensor reading: 28
+[2025-06-02T21:01:36.057564] [INFO] Firmware update available
+[2025-06-02T09:36:19.057564] [DEBUG] Battery level: 22%
+[2025-06-02T07:26:10.057564] [WARNING] Device started
+[2025-06-02T19:55:14.057564] [WARNING] Firmware update available
+[2025-06-02T18:06:46.057564] [ERROR] Sensor reading: 98

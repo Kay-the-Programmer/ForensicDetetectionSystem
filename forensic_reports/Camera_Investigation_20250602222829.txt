@@ -1,0 +1,105 @@
+================================================================================
+FORENSIC REPORT: Camera Investigation
+================================================================================
+
+CASE INFORMATION
+--------------------------------------------------------------------------------
+Case Name: Camera Investigation
+Investigator: Jane Smith
+Report Generated: 2025-06-02 22:28:29
+
+DEVICE INFORMATION
+--------------------------------------------------------------------------------
+Device ID: DEV_20250602214659
+Device Name: Smart Camera
+Manufacturer: SecureCam
+Model: SC-200
+Operating System: SecureOS 3.0
+Storage Type: SD Card
+
+Common Data Paths:
+- /var/log/
+- /media/footage/
+
+Communication Protocols:
+- WiFi
+- RTSP
+
+Cloud Service: Google Cloud
+
+Device Notes: Used for home security
+
+ACQUISITION DETAILS
+--------------------------------------------------------------------------------
+Acquisition #1:
+  Source Type: log
+  Timestamp: 20250602214740
+  File Path: forensic_output/DEV_20250602214659_log_20250602214740.dat
+  File Size: 1394 bytes
+  SHA256 Hash: 7223cc189d4a34a9a042b7533216d3232fab690048a49d445c62fd909a86ec63
+
+Acquisition #2:
+  Source Type: config
+  Timestamp: 20250602214748
+  File Path: forensic_output/DEV_20250602214659_config_20250602214748.dat
+  File Size: 1313 bytes
+  SHA256 Hash: d8b2d041ff69831d1758b45da4ca08dbc57012bf37ff911386afd7430f10b8b3
+
+ANALYSIS FINDINGS
+--------------------------------------------------------------------------------
+Log Analysis:
+  Total Log Entries: 25
+  Time Range: 2025-06-02T00:07:58.860766 to 2025-06-02T23:44:54.860766
+  Duration: 85016.0 seconds
+
+  Event Counts:
+    ERROR: 6
+    DEBUG: 10
+    INFO: 6
+    WARNING: 3
+
+  Error Events: 6
+  Warning Events: 3
+
+  Battery Statistics:
+    Count: 3
+    Min: 0%
+    Max: 72%
+    Average: 35.666666666666664%
+
+Configuration Analysis:
+  Device Name: SB9F34JC
+  Device ID: TBBAF5OQSLB4G66J
+  Version: 3.6.7
+
+  Network Information:
+    Type: Bluetooth
+    IP: 134.131.4.105
+    Port: 39107
+
+  Sensor Count: 5
+  Sensor Types:
+    - sound
+    - humidity
+    - temperature
+    - light
+
+  Cloud Enabled: True
+  Cloud Service: Custom
+
+  Security Issues:
+    - Network password stored in plaintext
+    - Cloud API key stored in plaintext
+
+  Settings:
+    Logging Level: INFO
+    Update Interval: 2 hours
+    Timezone: PST
+
+ADDITIONAL NOTES
+--------------------------------------------------------------------------------
+Investigation of unauthorized access
+
+================================================================================
+END OF REPORT: Camera Investigation
+================================================================================

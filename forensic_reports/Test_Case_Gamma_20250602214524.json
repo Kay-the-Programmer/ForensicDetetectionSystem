@@ -1,0 +1,58 @@
+{
+    "case_name": "Test Case Gamma",
+    "investigator": "Jules AI",
+    "timestamp": "20250602214524",
+    "device_info": {
+        "name": "3C81Y5ZP",
+        "id": "0SYOTNU0VXB6768V",
+        "version": "7.9.6"
+    },
+    "acquisition_details": [
+        {
+            "device_id": "DEV_20250602213934",
+            "source_type": "log",
+            "timestamp": "20250602213950",
+            "sha256_hash": "6fe53f56bfc999140e3040ac8c0dd262c0433f8470c49d41447366d4df7dd638",
+            "file_path": "forensic_output/DEV_20250602213934_log_20250602213950.dat",
+            "file_size": 1705
+        },
+        {
+            "device_id": "DEV_20250602213934",
+            "source_type": "config",
+            "timestamp": "20250602214007",
+            "sha256_hash": "c492c9b12bf220fd199c5f5c78ee6daa550c5bc279de8b2635a32e85a95aaed0",
+            "file_path": "forensic_output/DEV_20250602213934_config_20250602214007.dat",
+            "file_size": 1315
+        }
+    ],
+    "analysis_results": {
+        "device_info": {
+            "name": "3C81Y5ZP",
+            "id": "0SYOTNU0VXB6768V",
+            "version": "7.9.6"
+        },
+        "network_info": {
+            "type": "Zigbee",
+            "ip": "207.154.156.1",
+            "port": 8155
+        },
+        "sensor_count": 5,
+        "cloud_enabled": false,
+        "security_issues": [
+            "Network password stored in plaintext",
+            "Cloud API key stored in plaintext"
+        ],
+        "sensor_types": [
+            "motion",
+            "temperature",
+            "sound"
+        ],
+        "cloud_service": "AWS IoT",
+        "settings": {
+            "logging_level": "WARNING",
+            "update_interval": 3,
+            "timezone": "PST"
+        }
+    },
+    "notes": "Test with non-existing log analysis file."
+}
