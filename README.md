@@ -1,15 +1,15 @@
 # IoT Forensic Application
 
-A command-line application for acquiring, analyzing, and reporting on data from IoT devices.
+A command-line application and graphical user interface (GUI) for acquiring, analyzing, and reporting on data from IoT devices.
 
 ## Overview
 
-This application provides a foundational approach for IoT device forensics, with the following core modules:
+This application provides a foundational approach for IoT device forensics, with the following core modules, accessible via both CLI and GUI:
 
-1. **IoT Device Knowledge Base Manager**: Store and manage information about IoT devices
-2. **Acquisition Module**: Simulate data acquisition from devices and ensure data integrity
-3. **Analysis Module**: Parse and analyze common IoT data types
-4. **Reporting Module**: Generate forensic reports based on acquisition and analysis results
+1.  **IoT Device Knowledge Base Manager**: Store and manage information about IoT devices.
+2.  **Acquisition Module**: Simulate data acquisition from devices and ensure data integrity.
+3.  **Analysis Module**: Parse and analyze common IoT data types (log files, configuration files).
+4.  **Reporting Module**: Generate forensic reports based on acquisition and analysis results.
 
 ## Project Structure
 
@@ -50,6 +50,24 @@ ForensicDetection/
    ```
 
 ## Usage
+
+The application can be run via its Command Line Interface (CLI) or a Graphical User Interface (GUI).
+
+### Launching the Application
+
+*   **To start the Command Line Interface (CLI):**
+    ```bash
+    python main.py
+    ```
+    Once the CLI is running, type `help` or `[command] --help` for detailed options for each command group (e.g., `kb-cmd --help`).
+
+*   **To start the Graphical User Interface (GUI):**
+    ```bash
+    python main.py --gui
+    ```
+    This will launch the desktop application, providing access to all forensic modules through a user-friendly interface.
+
+### CLI Commands Overview
 
 The application provides a command-line interface with various commands for managing the IoT forensic workflow.
 
