@@ -37,6 +37,23 @@
             "cloud_service": "Google Cloud",
             "notes": "Used for home security",
             "date_added": "2025-06-02T21:46:59.447373"
+        },
+        {
+            "id": "DEV_20250605150353",
+            "name": "Camera",
+            "manufacturer": "sony",
+            "model": "ted20",
+            "os": "ONS",
+            "storage_type": "Flash",
+            "data_paths": [
+                "/etc/log"
+            ],
+            "communication_protocols": [
+                "wifi"
+            ],
+            "cloud_service": "AWS",
+            "notes": "Good for residential",
+            "date_added": "2025-06-05T15:03:53.091110"
         }
     ]
 }
