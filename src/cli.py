@@ -15,6 +15,11 @@ from src import knowledge_base as kb
 from src import acquisition as acq
 from src import analysis as anl
 from src import reporting as rep
+import cv2
+import time
+import src.video_acquisition as va
+import src.video_analysis as vanl
+import numpy as np
 
 @click.group()
 def cli():
@@ -348,6 +353,123 @@ def analyze_parse_config(file_path, output_file):
         click.echo(f"\nResults saved to: {output_file}")
     
     return parsed_config, analysis_results
+
+@analyze.command("video-stream")
+@click.option("--duration", default=30, help="Duration in seconds to run the analysis. Set to 0 for indefinite run (Ctrl+C to stop).", type=int)
+@click.option("--show-preview", is_flag=True, help="Attempt to show a live preview window (requires display server).")
+@click.option("--known-faces-dir", default="known_faces_for_cli_test", help="Directory for known faces.")
+@click.option("--motion", is_flag=True, default=True, help="Enable motion detection.")
+@click.option("--faces", is_flag=True, default=True, help="Enable facial detection.")
+@click.option("--recognize", is_flag=True, default=True, help="Enable facial recognition (implies --faces).")
+def analyze_video_stream(duration, show_preview, known_faces_dir, motion, faces, recognize):
+    """Perform real-time video analysis from webcam for a specified duration."""
+
+    click.echo("Initializing video stream analysis...")
+
+    try:
+        if not os.path.exists(known_faces_dir):
+            os.makedirs(known_faces_dir, exist_ok=True)
+            click.echo(f"Created known faces directory: {known_faces_dir}")
+
+        dummy_face_path = os.path.join(known_faces_dir, "person_cli_test.png")
+        if not os.path.exists(dummy_face_path):
+            dummy_known_face = np.zeros((100, 100, 3), dtype=np.uint8)
+            dummy_known_face[:, :, 0] = 255 # Blue square
+            cv2.imwrite(dummy_face_path, dummy_known_face)
+            click.echo(f"Created dummy known face: {dummy_face_path}")
+    except Exception as e:
+        click.echo(f"Warning: Could not create dummy known_faces_dir/file: {e}", err=True)
+
+
+    webcam = None
+    try:
+        webcam = va.WebcamVideoStream()
+        webcam.start()
+        click.echo("Webcam stream started.")
+
+        motion_detector = vanl.MotionDetector() if motion else None
+        face_detector = vanl.FaceDetector(model="hog") if faces or recognize else None
+        face_recognizer = None
+        if recognize:
+            if not face_detector:
+                face_detector = vanl.FaceDetector(model="hog")
+                click.echo("Facial detection enabled as it's required for recognition.")
+            face_recognizer = vanl.FaceRecognizer()
+            if os.path.exists(known_faces_dir):
+                face_recognizer.load_known_faces(known_faces_dir)
+            else:
+                click.echo(f"Warning: Known faces directory '{known_faces_dir}' not found. Recognition will be limited.", err=True)
+
+        start_time = time.time()
+        frame_count = 0
+
+        while True:
+            current_time = time.time()
+            if duration > 0 and (current_time - start_time) > duration:
+                click.echo(f"Analysis duration of {duration} seconds reached.")
+                break
+
+            bgr_frame = webcam.read()
+            if bgr_frame is None:
+                click.echo("Failed to grab frame or stream ended.", err=True)
+                break
+
+            frame_count += 1
+            timestamp = datetime.now().isoformat()
+            click.echo(f"\n--- Frame {frame_count} at {timestamp} ---")
+
+            processing_frame_rgb = cv2.cvtColor(bgr_frame, cv2.COLOR_BGR2RGB)
+
+            if motion_detector:
+                motion_detected, areas, _ = motion_detector.detect_motion_background_subtraction(bgr_frame.copy())
+                if motion_detected:
+                    click.echo(f"  Motion Detected: Yes, {len(areas)} area(s).")
+                    if show_preview:
+                        for (x,y,w,h) in areas: cv2.rectangle(bgr_frame, (x,y), (x+w,y+h), (0,255,0),2)
+                else:
+                    click.echo("  Motion Detected: No.")
+
+            face_locations = []
+            if face_detector:
+                face_locations = face_detector.detect_faces(processing_frame_rgb.copy())
+                if face_locations:
+                    click.echo(f"  Faces Detected: Yes, {len(face_locations)} face(s).")
+                    if show_preview:
+                        for (top, right, bottom, left) in face_locations: cv2.rectangle(bgr_frame, (left, top), (right, bottom), (255,0,0), 2)
+
+                    if face_recognizer:
+                        names = face_recognizer.recognize_faces(processing_frame_rgb.copy(), face_locations)
+                        click.echo(f"  Faces Recognized: {names}")
+                        if show_preview:
+                            for i, name in enumerate(names):
+                                (top, right, bottom, left) = face_locations[i]
+                                cv2.putText(bgr_frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.6, (0,0,255),1)
+                else:
+                    click.echo("  Faces Detected: No.")
+
+            if show_preview:
+                cv2.imshow("Video Stream Analysis - CLI (Press 'q' to quit)", bgr_frame)
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    click.echo("Preview window closed by user.")
+                    break
+
+            if not show_preview:
+                time.sleep(0.05)
+
+    except va.VideoCaptureError as e:
+        click.echo(f"Webcam Error: {e}", err=True)
+    except KeyboardInterrupt:
+        click.echo("\nAnalysis interrupted by user (Ctrl+C).")
+    except Exception as e:
+        click.echo(f"An unexpected error occurred: {e}", err=True)
+    finally:
+        if webcam:
+            webcam.stop()
+            click.echo("Webcam stream stopped.")
+        if show_preview:
+            cv2.destroyAllWindows()
+            click.echo("Preview window closed.")
+        click.echo("Video stream analysis finished.")
 
 # Reporting Commands
 @cli.group()
