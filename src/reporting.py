@@ -27,7 +27,8 @@ def generate_report(
     device_info: Dict[str, Any],
     acquisition_details: List[Dict[str, Any]],
     analysis_results: Dict[str, Any],
-    notes: str = ""
+    notes: str = "",
+    video_analysis_results: Optional[Dict[str, Any]] = None
 ) -> str:
     """
     Generates a forensic report based on acquisition details and analysis findings.
@@ -200,9 +201,30 @@ def generate_report(
                 report_content.append(f"    Logging Level: {settings.get('logging_level', 'Unknown')}")
                 report_content.append(f"    Update Interval: {settings.get('update_interval', 'Unknown')} hours")
                 report_content.append(f"    Timezone: {settings.get('timezone', 'Unknown')}")
+        report_content.append("") # Add a blank line after config analysis or log analysis
     else:
         report_content.append("No analysis results available.")
-    
+        report_content.append("")
+
+    # Add Video Analysis Findings
+    report_content.append("VIDEO ANALYSIS FINDINGS")
+    report_content.append("-" * 80)
+    if video_analysis_results:
+        report_content.append(f"Video Filename: {video_analysis_results.get('video_filename', 'N/A')}")
+        report_content.append(f"Video Duration: {video_analysis_results.get('duration', 'N/A')} seconds")
+        report_content.append(f"Detected Objects Count: {video_analysis_results.get('detected_objects_count', 0)}")
+        report_content.append("Significant Events:")
+        significant_events = video_analysis_results.get('significant_events')
+        if significant_events and isinstance(significant_events, list):
+            if significant_events:
+                for event in significant_events:
+                    report_content.append(f"- [{event.get('timestamp')}] {event.get('description')}")
+            else: # list is empty
+                report_content.append("No significant events recorded.")
+        else: # not a list or None
+            report_content.append("No significant events recorded.")
+    else:
+        report_content.append("No video analysis results available.")
     report_content.append("")
     
     # Add additional notes
@@ -229,6 +251,7 @@ def generate_report(
         "device_info": device_info,
         "acquisition_details": acquisition_details,
         "analysis_results": analysis_results,
+        "video_analysis_results": video_analysis_results if video_analysis_results else {},
         "notes": notes
     }
     

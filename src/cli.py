@@ -362,8 +362,9 @@ def report():
 @click.option("--acquisition-ids", required=True, help="Comma-separated list of acquisition timestamps")
 @click.option("--log-file", help="Path to the analyzed log file")
 @click.option("--config-file", help="Path to the analyzed configuration file")
+@click.option("--video-file", help="Path to the analyzed video file (JSON format)")
 @click.option("--notes", default="", help="Additional notes")
-def report_generate(case_name, investigator, device_id, acquisition_ids, log_file, config_file, notes):
+def report_generate(case_name, investigator, device_id, acquisition_ids, log_file, config_file, video_file, notes):
     """Generate a forensic report."""
     # Get the device information
     device = kb.get_device(device_id)
@@ -404,6 +405,23 @@ def report_generate(case_name, investigator, device_id, acquisition_ids, log_fil
                     if key not in analysis_results:
                         analysis_results[key] = value
     
+    # Initialize video analysis results
+    video_analysis_results = None
+    if video_file:
+        if os.path.exists(video_file):
+            try:
+                with open(video_file, 'r') as f:
+                    video_analysis_results = json.load(f)
+            except json.JSONDecodeError:
+                click.echo(f"Warning: Could not decode JSON from video analysis file: {video_file}")
+                video_analysis_results = {"error": "Failed to decode JSON"}
+            except FileNotFoundError: # Should be caught by os.path.exists, but good practice
+                click.echo(f"Warning: Video analysis file not found: {video_file}")
+                video_analysis_results = {"error": "File not found"}
+        else:
+            click.echo(f"Warning: Video analysis file specified but not found: {video_file}")
+            video_analysis_results = {"error": "File not found at specified path"}
+
     # Generate the report
     report_path = rep.generate_report(
         case_name=case_name,
@@ -411,6 +429,7 @@ def report_generate(case_name, investigator, device_id, acquisition_ids, log_fil
         device_info=device,
         acquisition_details=acquisition_details,
         analysis_results=analysis_results,
+        video_analysis_results=video_analysis_results,
         notes=notes
     )
     
