@@ -15,8 +15,40 @@ class App(tk.Tk):
         self.title("IoT Forensic Tool")
         self.geometry("800x600")
 
-        # Create a Notebook widget
-        self.notebook = ttk.Notebook(self)
+        # Main frame
+        main_frame = tk.Frame(self)
+        main_frame.pack(fill=tk.BOTH, expand=True)
+
+        # Sidebar frame
+        sidebar_frame = tk.Frame(main_frame, width=150, bg='#ECECEC')
+        # padx/pady here are for external padding of the sidebar_frame itself.
+        # Internal padding is achieved by padx/pady on buttons packed inside.
+        sidebar_frame.pack(fill=tk.Y, side=tk.LEFT, padx=10, pady=10)
+
+        # Configure button style for the sidebar
+        style = ttk.Style()
+        # Setting relief to FLAT. If not distinct, GROOVE or RIDGE could be alternatives.
+        # Padding is internal padding for the button content. Format: (left, top, right, bottom) or (horizontal, vertical)
+        style.configure("Sidebar.TButton", relief=tk.FLAT, padding=(10, 5))
+        # Example of mapping for hover (though might be theme-dependent)
+        # style.map("Sidebar.TButton",
+        #           background=[('active', '#B0B0B0'), ('!disabled', '#D0D0D0')],
+        #           relief=[('pressed', tk.SUNKEN), ('!pressed', tk.FLAT)])
+
+
+        tab_names = ["Knowledge Base", "Data Acquisition", "Data Analysis", "Reporting"]
+        for i, name in enumerate(tab_names):
+            btn = ttk.Button(sidebar_frame, text=name, command=lambda idx=i: self.notebook.select(idx), style="Sidebar.TButton")
+            # fill=tk.X makes buttons expand to sidebar width.
+            # padx provides spacing from sidebar edges. pady for spacing between buttons.
+            btn.pack(pady=5, padx=5, fill=tk.X)
+
+        # Content frame
+        content_frame = tk.Frame(main_frame)
+        content_frame.pack(fill=tk.BOTH, expand=True, side=tk.RIGHT)
+
+        # Create a Notebook widget within the content_frame
+        self.notebook = ttk.Notebook(content_frame)
 
         # Create frames for each tab
         self.kb_frame = ttk.Frame(self.notebook) # Renamed from kb_tab_frame for consistency
@@ -40,7 +72,7 @@ class App(tk.Tk):
         self.notebook.add(self.analysis_frame, text="Data Analysis")
         self.notebook.add(self.reporting_frame, text="Reporting")
 
-        # Pack the notebook to fill the window
+        # Pack the notebook to fill the content_frame
         self.notebook.pack(expand=True, fill='both', padx=10, pady=10)
 
     def setup_kb_tab(self, tab_frame):
